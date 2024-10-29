@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali Firecrackers</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <script>
+      function launchFirecrackers() {
+        const duration = 7 * 1000; // 7 seconds
+        const end = Date.now() + duration;
+
+        // Colors for the firecrackers
+        const colors = ['#ffeb3b', '#ff5722', '#8F00FF', '#4caf50', '#FFFFFF'];
+
+        (function frame() {
+            confetti({
+                particleCount: Math.random() * 50 + 50, // Random number of particles
+                startVelocity: Math.random() * 30 + 50, // High velocity for firecracker effect
+                spread: Math.random() * 360, // Full circular spread
+                ticks: 200,
+                shapes: ['circle'], // Firecracker shapes
+                origin: {
+                    x: Math.random(), // Random position on the x-axis
+                    y: Math.random() * 0.5 // Random position in the top half of the screen
+                },
+                colors: colors,
+            });
+
+            // Repeat the function as long as the duration is not over
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+    }
+
+    window.onload = function() {
+        launchFirecrackers(); // Launch firecrackers when the page loads
+    }
+    </script>
+
+    <h1>HAPPY DIWALI</h1>
+    <div class="diwali-content">
+    </div>
+
+    <p><b><i>Diwali, also known as Deepavali, is one of the most important and widely celebrated festivals in India. It is called the "Festival of Lights" and signifies the victory of good over evil and light over darkness. Diwali is celebrated by millions of people across the world, especially in India and among Hindu, Sikh, Jain, and some Buddhist communities.</i></b></p>
+    
+    <div class="gallery">
+        <img src="https://media.istockphoto.com/id/1419526367/photo/diwali-deepavali-hindu-festival-of-lights-diya-lamp-lit-on-black-close-up.jpg?s=612x612&w=0&k=20&c=xUhpNg9KakPu1cfxi6dgtTN_87TXr_UEqZEchgMclig=" alt="Diwali Lamp"> 
+    </div>
+</body>
+</html>
